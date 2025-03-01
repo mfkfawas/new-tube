@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
     <Image src='/logo.svg' height={50} width={50} alt="logo" />
-    <Button>Hello World</Button>
+    <p className="text-xl font-semibold tracking-tight">NewTube</p>
     </>
   );
 }
