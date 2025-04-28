@@ -16,6 +16,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
+    // NOTE: Most of the clerk's config are in env. please check that too
     <ClerkProvider afterSignOutUrl="/">
       <html lang="en">
         <body className={`${inter.className}`}>{children}</body>
