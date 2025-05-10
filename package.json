@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dev:webhook": "ngrok http --url=extremely-normal-owl.ngrok-free.app 3000",
+    "dev:all": "concurrently \"bun run dev:webhook\" \"bun run dev\""
   },
   "dependencies": {
     "@clerk/nextjs": "6.10.3",
@@ -42,6 +44,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
+    "concurrently": "^9.1.2",
     "date-fns": "^3.6.0",
     "dotenv": "16.4.7",
     "drizzle-kit": "0.30.3",
