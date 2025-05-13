@@ -1,0 +1,1 @@
+// The reason we used /api/users/webhook because it should be the same endpoint that we mentioned in the Clerk dashboard(https://dashboard.clerk.com/apps/app_2wEHgJA2sLm33UwHxlvQkT5aWhC/instances/ins_2wEHgMz6pJ3eoE2RwhHOxlitNw0/webhooks)
