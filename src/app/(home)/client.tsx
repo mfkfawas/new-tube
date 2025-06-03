@@ -10,6 +10,6 @@ export function PageClient() {
   // faster load time
   // parallel data loading
   // const [data] = trpc.hello.useSuspenseQuery({ text: "fawas" })
-  const [data] = trpc.hello.useSuspenseQuery({ text: "fawas" })
-  return <div>page client says {data.greeting}</div>
+  const [data] = trpc.categories.getMany.useSuspenseQuery()
+  return <div>{JSON.stringify(data)}</div>
 }
