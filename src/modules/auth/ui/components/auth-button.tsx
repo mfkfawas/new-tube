@@ -1,15 +1,26 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
-import { UserCircleIcon } from "lucide-react"
+import { ClapperboardIcon, UserCircleIcon } from "lucide-react"
 
 export const AuthButton = () => {
   // TODO: add different auth states
   return (
     <>
       <SignedIn>
-        <UserButton />
-        {/* TODO: Add menu items for Studio and User Profile */}
+        <UserButton>
+          <UserButton.MenuItems>
+            {/* TODO: Add menu items for User Profile */}
+            <UserButton.Link
+              label="Studio"
+              href="/studio"
+              labelIcon={<ClapperboardIcon className="size-4" />}
+            />
+
+            {/* To rearrange the order of default clerk menu items */}
+            {/* <UserButton.Action label="manageAccount" /> */}
+          </UserButton.MenuItems>
+        </UserButton>
       </SignedIn>
 
       <SignedOut>
