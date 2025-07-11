@@ -1,5 +1,5 @@
 import { cva, VariantProps } from "class-variance-authority"
-import { Avatar, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { cn } from "@/lib/utils"
 
 const avatarVariants = cva("", {
@@ -37,6 +37,7 @@ export function UserAvatar({
       onClick={onClick}
     >
       <AvatarImage src={imageUrl} alt={name} />
+      <AvatarFallback>{name.charAt(0)}</AvatarFallback>
     </Avatar>
   )
 }
