@@ -55,6 +55,18 @@ export const videos = pgTable("videos", {
     onDelete: "set null",
   }),
   description: text("description"),
+  // tells the status like: uploading, transcribing,...
+  muxStatus: text("mux_status"),
+  // assetId will recieved once the asset is created
+  muxAssetId: text("mux_asset_id").unique(),
+  // upload id is something that we are going to immediately populate when we create the video inside of our videos procedure and then when the webhook comes then we're going to connect the asset with the video.(In DB row we need to know which mux asset belongs to which video)
+  muxUploadId: text("mux_upload_id").unique(),
+  // playback id comes when asset is created and we're going to use playback to play the video and generate thumbnails/previews.
+  muxPlaybackId: text("mux_playback_id").unique(),
+  // available only if the video has subtitles
+  muxTrackId: text("mux_track_id").unique(),
+  // available only if the video has subtitles
+  muxTrackStatus: text("mux_track_status"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 })
