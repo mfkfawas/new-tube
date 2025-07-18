@@ -5,6 +5,7 @@ import { Loader2Icon, PlusIcon } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { trpc } from "@/trpc/client"
+import { ResponsiveModal } from "@/components/responsive-modal"
 
 export const StudioUploadModal = () => {
   const utils = trpc.useUtils()
@@ -25,17 +26,29 @@ export const StudioUploadModal = () => {
   })
 
   return (
-    <Button
-      variant="secondary"
-      onClick={() => create.mutate()}
-      disabled={create.isPending}
-    >
-      {create.isPending ? (
-        <Loader2Icon className="animate-spin" />
-      ) : (
-        <PlusIcon />
-      )}
-      Create
-    </Button>
+    <>
+      <Button
+        variant="secondary"
+        onClick={() => create.mutate()}
+        disabled={create.isPending}
+      >
+        {create.isPending ? (
+          <Loader2Icon className="animate-spin" />
+        ) : (
+          <PlusIcon />
+        )}
+        Create
+      </Button>
+
+      <ResponsiveModal
+        title="Upload a video"
+        // NOTE: !!create.data is only true if create mutation is success
+        open={!!create.data}
+        // NOTE: !!create.reset() will reset the mutation which means there will be no longer having create.data
+        onOpenChange={() => create.reset()}
+      >
+        This is an updloader
+      </ResponsiveModal>
+    </>
   )
 }
