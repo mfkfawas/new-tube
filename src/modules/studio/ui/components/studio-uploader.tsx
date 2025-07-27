@@ -31,6 +31,8 @@ export const StudioUploader = ({
         {/* from mux docs: */}
         <div slot="heading" className="flex flex-col items-center gap-6">
           <div className="flex items-center justify-center gap-2 rounded-full bg-muted h-32 w-32">
+            {/* group/drop-[&[active]]:animate-bounce translates to: "When the
+            parent drop zone is active, apply bounce animation to this icon" */}
             <UploadIcon className="size-10 text-muted-foreground group/drop-[&[active]]:animate-bounce transition-all duration-300" />
           </div>
 
